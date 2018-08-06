@@ -6,5 +6,7 @@ This python function validates ISBN13 codes and return either 'Valid' for correc
 The function was tested on the following test cases.
 
 assert_equal(verify_ISBN13(4006381333931), 'Valid')
+
 assert_equal(verify_ISBN13(9788175257665), 'Valid')
+
 assert_equal(verify_ISBN13(9788175257645), 'Invalid')
