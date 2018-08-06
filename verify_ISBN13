@@ -1,0 +1,26 @@
+def verify_ISBN13(ISBN):
+    # YOUR CODE HERE
+    
+    digitPlacement = 0
+    checksum = ISBN
+    sumISBN = 0
+    
+    while(ISBN>0):
+        weight = 1 
+        digitPlacement += 1         
+        
+        # Skip the check digit which is the last digit in the ISBN13
+        if (digitPlacement > 1):
+            
+            lastdigit = ISBN%10
+            
+            # Alternate the weight between odd (3) and even (1) place value of the ISBN13
+            if (digitPlacement % 2 == 0):
+                weight = 3        
+            sumISBN += lastdigit * weight;
+        ISBN = ISBN//10
+    
+    roundUp = sumISBN % 10
+    
+    # Python tenary operator to return the correct value
+    return 'Valid' if ( (10-roundUp) == checksum%10) else 'Invalid' 
